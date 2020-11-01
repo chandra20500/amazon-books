@@ -19,23 +19,36 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const bookList = [
+  {
+    name : 'Ten Lessons for a Post-Pandemic world',
+    price : '$19',
+    author : 'Fareed Zakaria',
+    genre : 'Hard Cover',
+    rating : '3',
+    image : "https://images-na.ssl-images-amazon.com/images/I/517czkIR4gL._AC_SX184_.jpg"
+  },
+  {
+    name : 'The Deep End',
+    price : '$16',
+    author : 'Ina Garten',
+    genre : 'Hard Cover',
+    rating : '4',
+    image : "https://m.media-amazon.com/images/I/81CTXWG01OL._AC_UY327_FMwebp_QL65_.jpg"
+  }
+]
+
+
 function App() {
   const classes = useStyles();
   return (
   <div className={classes.root}>
     <Grid container spacing={3}>
-          <Grid item xs={4}>
-            <ComplexGrid></ComplexGrid>
-          </Grid>
-          <Grid item xs={4}>
-            <ComplexGrid className={classes.paper}></ComplexGrid>
-          </Grid>
-          <Grid item xs={4}>
-            <ComplexGrid className={classes.paper}></ComplexGrid>
-          </Grid>
-          <Grid item xs={4}>
-            <ComplexGrid className={classes.paper}></ComplexGrid>
-          </Grid>
+    {bookList.map((book) => {return (
+        <Grid item xs={4}>
+          <ComplexGrid book = {book} className={classes.paper}></ComplexGrid>
+        </Grid>
+    )})}
     </Grid>
   </div>
   );
