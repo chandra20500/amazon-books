@@ -7,6 +7,8 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import ButtonBase from "@material-ui/core/ButtonBase";
+import Rating from "@material-ui/lab/Rating";
+import Box from "@material-ui/core/Box";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
 
 function ComplexGrid() {
   const classes = useStyles();
+  const [value] = React.useState(3);
 
   return (
     <div className={classes.root}>
@@ -57,15 +60,13 @@ function ComplexGrid() {
                 <Typography variant="body2" color="textSecondary">
                   HardCover
                 </Typography>
-              </Grid>
-              <Grid item>
-                <Typography variant="body2" style={{ cursor: "pointer" }}>
-                  3/5 stars
+                <Typography variant="body2" color="textSecondary">
+                  $19.00
                 </Typography>
               </Grid>
-            </Grid>
-            <Grid item>
-              <Typography variant="subtitle1">$19.00</Typography>
+              <Grid item>
+                <Rating name="read-only" value={value} readOnly />
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
