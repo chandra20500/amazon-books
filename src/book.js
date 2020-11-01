@@ -30,9 +30,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function ComplexGrid(props) {
-  const { name, image, author, genre, price } = props.book;
+  const { image, Name, Price, Author, rating } = props.book;
   const classes = useStyles();
-  const [value] = React.useState(2);
+  const [value] = React.useState(parseInt(rating));
 
   return (
     <div className={classes.root}>
@@ -47,16 +47,16 @@ function ComplexGrid(props) {
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
                 <Typography gutterBottom variant="subtitle1">
-                  {name}
+                  {Name}
                 </Typography>
                 <Typography variant="body2" gutterBottom>
-                  {author}
+                  {Author}
                 </Typography>
                 <Typography variant="body2" color="textSecondary">
-                  {genre}
+                  HardCover
                 </Typography>
                 <Typography variant="body2" color="textSecondary">
-                  {price}
+                  {Price}
                 </Typography>
               </Grid>
               <Grid item>
