@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Grid from "./grid";
-import Topbar from "./appbar";
+import Template from "./template";
 
 function Index() {
   return (
     <>
-      <Topbar />
+      <Template />
       <Grid />
     </>
   );
