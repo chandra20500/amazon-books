@@ -5,14 +5,14 @@ import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Toolbar from "@material-ui/core/Toolbar";
 import List from "@material-ui/core/List";
-import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
+import WhatshotIcon from '@material-ui/icons/Whatshot';
 import Topbar from "./topbar";
+import ComputerIcon from '@material-ui/icons/Computer';
+import FunctionsIcon from '@material-ui/icons/Functions';
+import AcUnitIcon from '@material-ui/icons/AcUnit';
 
 const drawerWidth = 240;
 
@@ -58,16 +58,30 @@ function Template() {
         <Toolbar />
         <div className={classes.drawerContainer}>
           <List>
-            {["Top Seller", "Computer Science", "Mathematics", ""].map(
-              (text, index) => (
-                <ListItem button key={text}>
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-                </ListItem>
-              )
-            )}
+           <ListItem button>
+             <ListItemIcon>
+               <WhatshotIcon />
+             </ListItemIcon>
+             <ListItemText primary="Top Seller"/>
+           </ListItem>
+           <ListItem button>
+             <ListItemIcon>
+               <ComputerIcon />
+             </ListItemIcon>
+             <ListItemText primary="Computer Science"/>
+           </ListItem>
+           <ListItem button>
+             <ListItemIcon>
+               <FunctionsIcon />
+             </ListItemIcon>
+             <ListItemText primary="Mathematics"/>
+           </ListItem>
+           <ListItem button>
+             <ListItemIcon>
+               <AcUnitIcon />
+             </ListItemIcon>
+             <ListItemText primary="Others"/>
+           </ListItem>
           </List>
         </div>
       </Drawer>

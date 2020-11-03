@@ -1,8 +1,10 @@
 import React from "react";
 import ComplexGrid from "./book";
 import Toolbar from "@material-ui/core/Toolbar";
-
-import data from "./file";
+import FictionData from "./fiction";
+import TopSellerData from "./file";
+import BiographyData from "./biography"
+import AdventureData from "./adventure"
 
 /* material UI */
 import { makeStyles } from "@material-ui/core/styles";
@@ -29,7 +31,7 @@ function App() {
       <Toolbar />
       <Toolbar />
       <Grid container spacing={3}>
-        {data.map((book) => {
+        {FictionData.map((book) => {
           return (
             <Grid item xs={4}>
               <ComplexGrid book={book} className={classes.paper}></ComplexGrid>
