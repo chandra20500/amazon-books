@@ -8,11 +8,12 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import WhatshotIcon from '@material-ui/icons/Whatshot';
+import WhatshotIcon from "@material-ui/icons/Whatshot";
 import Topbar from "./topbar";
-import ComputerIcon from '@material-ui/icons/Computer';
-import FunctionsIcon from '@material-ui/icons/Functions';
-import AcUnitIcon from '@material-ui/icons/AcUnit';
+import DirectionsBikeIcon from "@material-ui/icons/DirectionsBike";
+import FlashOnIcon from "@material-ui/icons/FlashOn";
+import EmojiPeopleIcon from "@material-ui/icons/EmojiPeople";
+import { useHistory } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -41,7 +42,25 @@ const useStyles = makeStyles((theme) => ({
 
 function Template() {
   const classes = useStyles();
+  const location = document.location.pathname;
 
+  //const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [selected, ChangeSelect] = React.useState(location);
+
+  const [destintion, setDestination] = React.useState("dashboard2");
+
+  /*const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };*/
+
+  const history = useHistory();
+
+  const routeChange = (p) => {
+    let path = `${p}`;
+    ChangeSelect(`${p}`);
+    console.log({ selected });
+    history.push(path);
+  };
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -58,30 +77,30 @@ function Template() {
         <Toolbar />
         <div className={classes.drawerContainer}>
           <List>
-           <ListItem button>
-             <ListItemIcon>
-               <WhatshotIcon />
-             </ListItemIcon>
-             <ListItemText primary="Top Seller"/>
-           </ListItem>
-           <ListItem button>
-             <ListItemIcon>
-               <ComputerIcon />
-             </ListItemIcon>
-             <ListItemText primary="Computer Science"/>
-           </ListItem>
-           <ListItem button>
-             <ListItemIcon>
-               <FunctionsIcon />
-             </ListItemIcon>
-             <ListItemText primary="Mathematics"/>
-           </ListItem>
-           <ListItem button>
-             <ListItemIcon>
-               <AcUnitIcon />
-             </ListItemIcon>
-             <ListItemText primary="Others"/>
-           </ListItem>
+            <ListItem button onClick={() => routeChange("/BestSeller")}>
+              <ListItemIcon>
+                <WhatshotIcon />
+              </ListItemIcon>
+              <ListItemText primary="Top Seller" />
+            </ListItem>
+            <ListItem button onClick={() => routeChange("/Adventure")}>
+              <ListItemIcon>
+                <DirectionsBikeIcon />
+              </ListItemIcon>
+              <ListItemText primary="Adventure" />
+            </ListItem>
+            <ListItem button onClick={() => routeChange("/Fiction")}>
+              <ListItemIcon>
+                <FlashOnIcon />
+              </ListItemIcon>
+              <ListItemText primary="Fiction" />
+            </ListItem>
+            <ListItem button onClick={() => routeChange("/Biography")}>
+              <ListItemIcon>
+                <EmojiPeopleIcon />
+              </ListItemIcon>
+              <ListItemText primary="Biography" />
+            </ListItem>
           </List>
         </div>
       </Drawer>

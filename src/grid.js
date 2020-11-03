@@ -24,14 +24,32 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function App() {
+function renderComponent(props) {
+  const name = props.GridType;
+  console.log(props.GridType);
+  if (name === 'Adventure') {
+    return AdventureData;
+  } 
+  if(name === 'Fiction') {
+    return FictionData;
+  }
+  if(name === 'BestSeller') {
+    return TopSellerData;
+  }
+  if(name === 'Biography') {
+    return BiographyData;
+  }
+}
+
+function App(props) {
   const classes = useStyles();
+  const data = renderComponent(props);
   return (
     <div className={classes.root}>
       <Toolbar />
       <Toolbar />
       <Grid container spacing={3}>
-        {FictionData.map((book) => {
+        {data.map((book,index) => {
           return (
             <Grid item xs={4}>
               <ComplexGrid book={book} className={classes.paper}></ComplexGrid>
