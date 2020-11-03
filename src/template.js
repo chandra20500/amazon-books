@@ -43,7 +43,6 @@ const useStyles = makeStyles((theme) => ({
 function Template() {
   const classes = useStyles();
   const location = document.location.pathname;
-
   //const [mobileOpen, setMobileOpen] = React.useState(false);
   const [selected, ChangeSelect] = React.useState(location);
 
@@ -77,25 +76,25 @@ function Template() {
         <Toolbar />
         <div className={classes.drawerContainer}>
           <List>
-            <ListItem button onClick={() => routeChange("/BestSeller")}>
+            <ListItem button selected={selected === "/BestSeller" ? 1 : 0} onClick={() => routeChange("/BestSeller")}>
               <ListItemIcon>
                 <WhatshotIcon />
               </ListItemIcon>
               <ListItemText primary="Top Seller" />
             </ListItem>
-            <ListItem button onClick={() => routeChange("/Adventure")}>
+            <ListItem button selected={selected === "/Adventure" ? 1 : 0} onClick={() => routeChange("/Adventure")}>
               <ListItemIcon>
                 <DirectionsBikeIcon />
               </ListItemIcon>
               <ListItemText primary="Adventure" />
             </ListItem>
-            <ListItem button onClick={() => routeChange("/Fiction")}>
+            <ListItem button selected={selected === "/Fiction" ? 1 : 0} onClick={() => routeChange("/Fiction")}>
               <ListItemIcon>
                 <FlashOnIcon />
               </ListItemIcon>
               <ListItemText primary="Fiction" />
             </ListItem>
-            <ListItem button onClick={() => routeChange("/Biography")}>
+            <ListItem button selected={selected === "/Biography" ? 1 : 0} onClick={() => routeChange("/Biography")}>
               <ListItemIcon>
                 <EmojiPeopleIcon />
               </ListItemIcon>
